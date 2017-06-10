@@ -8,10 +8,12 @@ window.addEventListener("load", function () {
 		document.getElementById("subheading").innerHTML = "&nbsp;";
 	}
 	
-	var links = document.getElementsByClassName("sidebar_link");
+	var links = document.getElementsByTagName("a");
 	for (var i=0; i<links.length; i++) {
 		(function () {
 			var link = links[i];
+			if (!~link.className.indexOf("sidebar_link")) return;
+
 			link.addEventListener("click", function (e) {
 				if (e.target.target == "previewFrame") {
 					var w = window.open(e.target.href, "previewFrame", "width=250, height=500");
@@ -22,25 +24,26 @@ window.addEventListener("load", function () {
 						}
 					}
 				}
-			});
-			var span = document.createElement("span");
-			span.innerHTML = " &middot; ";
-			var addLink = document.createElement("a");
-			addLink.innerHTML = "Add";
-			addLink.href = "#";
-			addLink.addEventListener("click", function (e) {
-				if (e && e.preventDefault) {
-					e.preventDefault();
-					if (~link.className.indexOf("persistent")) {
-						sidebar.addPersistentPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
-					} else {
-						sidebar.addPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+			}, false);
+			if (window.sidebar) {
+				var span = document.createElement("span");
+				span.innerHTML = " &middot; ";
+				var addLink = document.createElement("a");
+				addLink.innerHTML = "Add";
+				addLink.href = "#";
+				addLink.addEventListener("click", function (e) {
+					if (e && e.preventDefault) {
+						e.preventDefault();
+						if (~link.className.indexOf("persistent")) {
+							sidebar.addPersistentPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+						} else {
+							sidebar.addPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+						}
 					}
-				}
-			});
-			span.insertBefore(addLink, span.firstChild);
-			link.parentNode.insertBefore(span, link);
-			
+				}, false);
+				span.insertBefore(addLink, span.firstChild);
+				link.parentNode.insertBefore(span, link);
+			}
 			if (~link.className.indexOf("persistent")) {
 				var icons = document.createElement("span");
 				icons.innerHTML = " <span class='icon persistent'>P</span>";
@@ -48,4 +51,4 @@ window.addEventListener("load", function () {
 			}
 		})();
 	}
-});
+}, false);
