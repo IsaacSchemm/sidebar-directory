@@ -5,13 +5,24 @@ window.addEventListener("load", function () {
 		var gitHubRepo = urlmatch[2];
 		document.getElementById("subheading").innerHTML = "Maintained by <a href='https://github.com/" + gitHubUsername + "/" + gitHubRepo + "'>" + gitHubUsername + "</a>";
 	} else {
-		document.getElementById("subheading").innerHTML = "";
+		document.getElementById("subheading").innerHTML = "&nbsp;";
 	}
 	
 	var links = document.getElementsByClassName("sidebar_link");
 	for (var i=0; i<links.length; i++) {
 		(function () {
 			var link = links[i];
+			link.addEventListener("click", function (e) {
+				if (e.target.target == "previewFrame") {
+					var w = window.open(e.target.href, "previewFrame", "width=250, height=500");
+					if (w) {
+						w.focus();
+						if (e && e.preventDefault) {
+							e.preventDefault();
+						}
+					}
+				}
+			});
 			var span = document.createElement("span");
 			span.innerHTML = " &middot; ";
 			var addLink = document.createElement("a");

@@ -1,6 +1,6 @@
 body {
 	margin: auto;
-	margin-right: 275px;
+	max-width: 1000px;
 }
 h1, h2 {
 	font-family: Helvetica, Arial, sans-serif;
@@ -25,28 +25,9 @@ td {
 	vertical-align: top;
 	overflow-y: scroll;
 }
-hr {
-	width: calc(100% - 325px);
-	margin-left: 25px;
-	margin-right: 300px;
-}
 p {
 	padding-left: 25px;
 	padding-right: 25px;
-}
-#previewFrame {
-	position: fixed;
-	top: 0;
-	right: 0;
-	float: right;
-	width: 250px;
-	height: 500px;
-	height: calc(100vh - 26px);
-	border: 1px inset white;
-	margin: 12px;
-}
-#reference {
-	
 }
 a.sidebar_link {
 	font-weight: bold;
