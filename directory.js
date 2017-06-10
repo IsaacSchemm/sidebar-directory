@@ -37,13 +37,4 @@ window.addEventListener("load", function () {
 			}
 		})();
 	}
-	
-	var iframe = document.getElementById("previewFrame");
-	window.addEventListener("scroll", function () {
-		if (window.scrollY > 250) {
-			iframe.style.position = "fixed";
-		} else {
-			iframe.style.position = "";
-		}
-	});
 });

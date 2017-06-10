@@ -1,5 +1,6 @@
 body {
 	margin: auto;
+	margin-right: 275px;
 }
 h1, h2 {
 	font-family: Helvetica, Arial, sans-serif;
@@ -24,11 +25,17 @@ td {
 	vertical-align: top;
 	overflow-y: scroll;
 }
+hr {
+	width: calc(100% - 325px);
+	margin-left: 25px;
+	margin-right: 300px;
+}
 p {
 	padding-left: 25px;
 	padding-right: 25px;
 }
 #previewFrame {
+	position: fixed;
 	top: 0;
 	right: 0;
 	float: right;
@@ -39,7 +46,7 @@ p {
 	margin: 12px;
 }
 #reference {
-	padding-right: 275px;
+	
 }
 a.sidebar_link {
 	font-weight: bold;
