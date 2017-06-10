@@ -29,18 +29,18 @@ window.addEventListener("load", function () {
 			});
 			span.insertBefore(addLink, span.firstChild);
 			link.parentNode.insertBefore(span, link);
+			
 			if (~link.className.indexOf("persistent")) {
-				var icon = document.createElement("span");
-				icon.className = "icon";
-				icon.innerHTML = "P";
-				link.parentNode.insertBefore(icon, link.nextSibling);
+				var icons = document.createElement("span");
+				icons.innerHTML = " <span class='icon persistent'>P</span>";
+				link.parentNode.insertBefore(icons, link.nextSibling);
 			}
 		})();
 	}
 	
 	var iframe = document.getElementById("previewFrame");
 	window.addEventListener("scroll", function () {
-		if (window.scrollY > 180) {
+		if (window.scrollY > 250) {
 			iframe.style.position = "fixed";
 		} else {
 			iframe.style.position = "";
