@@ -20,7 +20,11 @@ window.addEventListener("load", function () {
 			addLink.addEventListener("click", function (e) {
 				if (e && e.preventDefault) {
 					e.preventDefault();
-					sidebar.addPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+					if (e.target.className.indexOf("persistent")) {
+						sidebar.addPersistentPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+					} else {
+						sidebar.addPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
+					}
 				}
 			});
 			span.insertBefore(addLink, span.firstChild);
