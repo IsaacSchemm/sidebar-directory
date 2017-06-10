@@ -44,3 +44,9 @@ p {
 a.sidebar_link {
 	font-weight: bold;
 }
+span.icon {
+	margin: 0 0.25em;
+	padding: 0 0.25em;
+	background-color: red;
+	color: white;
+}

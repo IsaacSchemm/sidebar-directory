@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
 			addLink.addEventListener("click", function (e) {
 				if (e && e.preventDefault) {
 					e.preventDefault();
-					if (e.target.className.indexOf("persistent")) {
+					if (~link.className.indexOf("persistent")) {
 						sidebar.addPersistentPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
 					} else {
 						sidebar.addPanel(link.innerHTML.replace(/[ \t\r\n]+/, " "), link.href, "");
@@ -29,6 +29,12 @@ window.addEventListener("load", function () {
 			});
 			span.insertBefore(addLink, span.firstChild);
 			link.parentNode.insertBefore(span, link);
+			if (~link.className.indexOf("persistent")) {
+				var icon = document.createElement("span");
+				icon.className = "icon";
+				icon.innerHTML = "P";
+				link.parentNode.insertBefore(icon, link.nextSibling);
+			}
 		})();
 	}
 	
