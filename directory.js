@@ -1,6 +1,12 @@
 window.addEventListener("load", function () {
-	var gitHubUsername = "IsaacSchemm";
-	document.getElementById("subheading").innerHTML = "Maintained by <a href='https://github.com/" + gitHubUsername + "'>" + gitHubUsername + "</a>";
+	var urlmatch = /https?:\/\/([^.]+)\.github\.io\/([^/]+)/.exec(location.href);
+	if (urlmatch && urlmatch.length >= 3) {
+		var gitHubUsername = urlmatch[1];
+		var gitHubRepo = urlmatch[2];
+		document.getElementById("subheading").innerHTML = "Maintained by <a href='https://github.com/" + gitHubUsername + "/" + gitHubRepo + "'>" + gitHubUsername + "</a>";
+	} else {
+		document.getElementById("subheading").innerHTML = "";
+	}
 	
 	var links = document.getElementsByClassName("sidebar_link");
 	for (var i=0; i<links.length; i++) {
