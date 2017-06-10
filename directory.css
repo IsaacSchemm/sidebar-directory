@@ -37,6 +37,10 @@ span.icon {
 	width: 16px;
 	text-align: center;
 }
+span.icon.sidebar {
+	background-color: black;
+	color: white;
+}
 span.icon.javascript {
 	background-color: darkgreen;
 	color: white;
