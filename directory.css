@@ -1,0 +1,46 @@
+body {
+	margin: auto;
+}
+h1, h2 {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0.25em;
+}
+h1, h2, h3 {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+h1 {
+	font-size: 32px;
+	background-color: darkgreen;
+	color: white;
+}
+h2, h2 a {
+	font-size: 18px;
+	background-color: darkblue;
+	color: white;
+}
+td {
+	vertical-align: top;
+	overflow-y: scroll;
+}
+p {
+	padding-left: 25px;
+	padding-right: 25px;
+}
+#previewFrame {
+	top: 0;
+	right: 0;
+	float: right;
+	width: 250px;
+	height: 500px;
+	height: calc(100vh - 26px);
+	border: 1px inset white;
+	margin: 12px;
+}
+#reference {
+	padding-right: 275px;
+}
+a.sidebar_link {
+	font-weight: bold;
+}
