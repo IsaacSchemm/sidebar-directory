@@ -4,8 +4,6 @@ window.addEventListener("load", function () {
 		var gitHubUsername = urlmatch[1];
 		var gitHubRepo = urlmatch[2];
 		document.getElementById("subheading").innerHTML = "Maintained by <a href='https://github.com/" + gitHubUsername + "/" + gitHubRepo + "'>" + gitHubUsername + "</a>";
-	} else {
-		document.getElementById("subheading").innerHTML = "&nbsp;";
 	}
 	
 	var linksLive = document.getElementsByTagName("a");
@@ -20,7 +18,7 @@ window.addEventListener("load", function () {
 
 			link.addEventListener("click", function (e) {
 				if (e.target.target == "previewFrame") {
-					var w = window.open(e.target.href, "previewFrame", "width=250, height=500");
+					var w = window.open(e.target.href, "previewFrame", "width=250, height=500,status");
 					if (w) {
 						w.focus();
 						if (e && e.preventDefault) {
