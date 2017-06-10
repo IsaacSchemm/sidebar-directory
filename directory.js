@@ -8,11 +8,15 @@ window.addEventListener("load", function () {
 		document.getElementById("subheading").innerHTML = "&nbsp;";
 	}
 	
-	var links = document.getElementsByTagName("a");
+	var linksLive = document.getElementsByTagName("a");
+	var links = [];
+	for (var i=0; i<linksLive.length; i++) {
+		links.push(linksLive[i]);
+	}
 	for (var i=0; i<links.length; i++) {
 		(function () {
 			var link = links[i];
-			if (!~link.className.indexOf("sidebar_link")) return;
+			if (link.className.indexOf("sidebar_link") == -1) return;
 
 			link.addEventListener("click", function (e) {
 				if (e.target.target == "previewFrame") {
