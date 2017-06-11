@@ -18,7 +18,7 @@ window.addEventListener("load", function () {
 
 			link.addEventListener("click", function (e) {
 				if (e.target.target == "previewFrame") {
-					var w = window.open(e.target.href, "previewFrame", "width=250, height=500,status");
+					var w = window.open(e.target.href, "previewFrame", "width=250, height=500,status,resizable");
 					if (w) {
 						w.focus();
 						if (e && e.preventDefault) {
